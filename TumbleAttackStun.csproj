@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>TumbleAttackStun</RootNamespace>
+    <AssemblyName>TumbleAttackStun</AssemblyName>
+    <LangVersion>latest</LangVersion>
+
+   
+    <RepoRootPath>C:\Program Files (x86)\Steam\steamapps\common\REPO</RepoRootPath>
+    <RepoManaged>$(RepoRootPath)\REPO_Data\Managed</RepoManaged>
+    <RepoBepInExCore>$(RepoRootPath)\BepInEx\core</RepoBepInExCore>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>$(RepoBepInExCore)\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="0Harmony">
+      <HintPath>$(RepoBepInExCore)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(RepoManaged)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="PhotonUnityNetworking">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\REPO\REPO_Data\Managed\PhotonUnityNetworking.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UnityEngine">
+      <HintPath>$(RepoManaged)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(RepoManaged)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="Build">
+    <Exec Command="copy &quot;$(TargetPath)&quot; &quot;$(RepoRootPath)\BepInEx\plugins\$(TargetFileName)&quot; /Y" />
+  </Target>
+</Project>
