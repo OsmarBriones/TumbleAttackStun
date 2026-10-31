@@ -1,7 +1,7 @@
 {
   "name": "TumbleAttackStun",
   "version_number": "1.0.0",
-  "website_url": "https://github.com/OsmarBriones/EnemyDrops",
+  "website_url": "https://github.com/OsmarBriones/TumbleAttackStun",
   "description": "The monsters will be stunned when you use the tumble attack. Configure the stun duration/time; only the host needs to have it.",
   "dependencies": [
 	"BepInEx-BepInExPack-5.4.2304"
